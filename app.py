@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
 
     value = request.json
-
+    # value
     a = value["Slot"]
 
     Crc = list(value["CourseList"])
