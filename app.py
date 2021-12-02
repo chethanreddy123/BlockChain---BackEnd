@@ -34,7 +34,7 @@ def index():
         c = Crc[i]
         LC.append(c)
 
-    with open("fall21data.json") as json_file:
+    with open("winter_22_updated.json") as json_file:
         data = json.load(json_file)
 
     for i in data:
