@@ -38,7 +38,7 @@ def index():
         data = json.load(json_file)
 
     for i in data:
-        if i['ctype'] == 'LO' and i['crcode'] in LC:
+        if i['slot'].count('L') > 2 and i['crcode'] in LC:
             LL.append(i['crcode'])
             LC.remove(i['crcode'])
 
