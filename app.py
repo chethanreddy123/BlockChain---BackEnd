@@ -3,6 +3,7 @@ import json
 from itertools import permutations
 from itertools import combinations
 import os
+from flask_cors import CORS, cross_origin
 
 import flask
 app = Flask(__name__)
