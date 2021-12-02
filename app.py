@@ -8,6 +8,7 @@ import flask
 app = Flask(__name__)
 
 @app.route('/index' , methods = ['GET' ,'POST'])
+@cross_origin()
 def index():
 
     value = request.json
