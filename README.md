@@ -1,4 +1,4 @@
-# FFSC-Planner-Python
+# FFCS-Planner-Python
 ## Auto Slot Picker
 An Algorithm that makes a VIT time table [ Auto Slot Picker](https://ffcs.vitrendz.com/)
 
