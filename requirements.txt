@@ -36,4 +36,4 @@ joblib==1.1.0
 jsons==1.6.3
 scikit-learn==1.1.1
 pymongo==4.2.0
-pymongo[srv]==3.11
+'pymongo[srv]'==3.11
