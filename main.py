@@ -14,10 +14,10 @@ app = _fastapi.FastAPI()
 @app.post("/mine_block/")
 async def mine_block(info : Request):
     req_info = await info.json()
-    data = req_info['data']
+    data1 = req_info['data']
     if not blockchain.is_chain_valid():
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
-    block = blockchain.mine_block(data=data)
+    block = blockchain.mine_block(data=data1)
 
     with MongoClient("mongodb+srv://chethanreddy2002:12345@cluster0.xihwp.mongodb.net/?retryWrites=true&w=majority") as client:
         msg_collection = client['Test']['Test']
