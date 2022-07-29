@@ -1,5 +1,7 @@
-import fastapi as _fastapi
+import fastapi as _fastapi 
 import blockchain as _blockchain
+from fastapi import Request
+
 
 from pymongo.mongo_client import MongoClient
 
@@ -10,7 +12,9 @@ app = _fastapi.FastAPI()
 
 # endpoint to mine a block
 @app.post("/mine_block/")
-def mine_block(data: str):
+async def mine_block(info : Request):
+    req_info = await info.json()
+    data = req_info['data']
     if not blockchain.is_chain_valid():
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
     block = blockchain.mine_block(data=data)
