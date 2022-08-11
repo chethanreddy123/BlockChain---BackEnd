@@ -19,8 +19,8 @@ async def mine_block(info : Request):
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
     block = blockchain.mine_block(data=data1)
 
-    with MongoClient("mongodb+srv://chethanreddy2002:12345@cluster0.xihwp.mongodb.net/?retryWrites=true&w=majority") as client:
-        msg_collection = client['Test']['Test']
+    with MongoClient("mongodb+srv://chethanreddy123:12345@cluster0.dix8btt.mongodb.net/?retryWrites=true&w=majority") as client:
+        msg_collection = client['BlockChainData']['TestData']
         result = msg_collection.insert_one(dict(block))
         ack = result.acknowledged
 
@@ -34,8 +34,8 @@ def get_blockchain():
     if not blockchain.is_chain_valid():
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
     chain = blockchain.chain
-    with MongoClient("mongodb+srv://chethanreddy2002:12345@cluster0.xihwp.mongodb.net/?retryWrites=true&w=majority") as client:
-        msg_collection = client['Test']['Test']
+    with MongoClient("mongodb+srv://chethanreddy123:12345@cluster0.dix8btt.mongodb.net/?retryWrites=true&w=majority") as client:
+        msg_collection = client['BlockChainData']['TestData']
         chain[0]['_id'] = 1
         result = msg_collection.insert_one(chain[0])
         ack = result.acknowledged
