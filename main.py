@@ -19,7 +19,7 @@ async def mine_block(info : Request):
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
     block = blockchain.mine_block(data=data1)
 
-    with MongoClient("mongodb+srv://chethanreddy123:12345@cluster0.dix8btt.mongodb.net/?retryWrites=true&w=majority") as client:
+    with MongoClient("mongodb://chethanreddy123:1234@ac-wspz9tf-shard-00-00.dix8btt.mongodb.net:27017,ac-wspz9tf-shard-00-01.dix8btt.mongodb.net:27017,ac-wspz9tf-shard-00-02.dix8btt.mongodb.net:27017/?ssl=true&replicaSet=atlas-f8in3c-shard-0&authSource=admin&retryWrites=true&w=majority") as client:
         msg_collection = client['BlockChainData']['TestData']
         result = msg_collection.insert_one(dict(block))
         ack = result.acknowledged
@@ -34,7 +34,7 @@ def get_blockchain():
     if not blockchain.is_chain_valid():
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
     chain = blockchain.chain
-    with MongoClient("mongodb+srv://chethanreddy123:12345@cluster0.dix8btt.mongodb.net/?retryWrites=true&w=majority") as client:
+    with MongoClient("mongodb://chethanreddy123:1234@ac-wspz9tf-shard-00-00.dix8btt.mongodb.net:27017,ac-wspz9tf-shard-00-01.dix8btt.mongodb.net:27017,ac-wspz9tf-shard-00-02.dix8btt.mongodb.net:27017/?ssl=true&replicaSet=atlas-f8in3c-shard-0&authSource=admin&retryWrites=true&w=majority") as client:
         msg_collection = client['BlockChainData']['TestData']
         chain[0]['_id'] = 1
         result = msg_collection.insert_one(chain[0])
@@ -42,7 +42,7 @@ def get_blockchain():
     return chain[0]
 
 # endpoint to see if the chain is valid
-@app.get("/validate/")
+@app.get("  ")
 def is_blockchain_valid():
     if not blockchain.is_chain_valid():
         return _fastapi.HTTPException(status_code=400, detail="The blockchain is invalid")
